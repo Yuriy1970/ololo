@@ -88,5 +88,5 @@ class AdminSecurityController extends ContainerAware
     {
         throw new \RuntimeException('You must activate the logout in your security firewall configuration.');
     }
-    //
+    
 }
