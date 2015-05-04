@@ -1,0 +1,7 @@
+bundles_user_instagram_auth:
+    path:     /instagram_auth
+    defaults: { _controller: BundlesUserBundle:Instagram:authLogin }
+
+bundles_user_facebook_auth:
+    path:     /facebook_auth
+    defaults: { _controller: BundlesUserBundle:Facebook:authLogin }

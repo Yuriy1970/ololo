@@ -1,0 +1,13 @@
+{% extends "SiteFirstBundle::layout.html.twig"%}
+
+{% block content %}
+
+<div class = "news">
+{% for art in tag.getNews%}
+<h1> {{ art.getTitle() }}</h1>
+<p> {{ art.getContent() | slice (0, 300)}}...
+<a href = "{{ path('site_news_article', {'slug':art.getSlug()} ) }}"> Читать дальше ... </a>
+</p>
+{%endfor%}
+</div>
+{% endblock%}

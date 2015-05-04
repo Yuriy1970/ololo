@@ -1,0 +1,10 @@
+Bundles\UserBundle\Entity\Role:
+    type: entity
+    table: fos_user_group
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    lifecycleCallbacks: {  }

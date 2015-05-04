@@ -1,0 +1,153 @@
+<?php
+
+namespace Bundles\UserBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+//use FOS\UserBundle\Entity\User as BaseUser;
+use Sonata\UserBundle\Entity\BaseUser as BaseUser;
+/**
+ * User
+ */
+class User extends BaseUser
+{
+    /**
+     * @var integer
+     */
+    protected $id;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $photos;
+
+
+    /**
+     * Add photo
+     *
+     * @param \Bundles\StoreBundle\Entity\Photo $photo
+     *
+     * @return User
+     */
+    public function addPhoto(\Bundles\StoreBundle\Entity\Photo $photo)
+    {
+        $this->photos[] = $photo;
+
+        return $this;
+    }
+
+    /**
+     * Remove photo
+     *
+     * @param \Bundles\StoreBundle\Entity\Photo $photo
+     */
+    public function removePhoto(\Bundles\StoreBundle\Entity\Photo $photo)
+    {
+        $this->photos->removeElement($photo);
+    }
+
+    /**
+     * Get photos
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPhotos()
+    {
+        return $this->photos;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $sales;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $purchase;
+
+
+    /**
+     * Add sale
+     *
+     * @param \Bundles\StoreBundle\Entity\OrderPhoto $sale
+     *
+     * @return User
+     */
+    public function addSale(\Bundles\StoreBundle\Entity\OrderPhoto $sale)
+    {
+        $this->sales[] = $sale;
+
+        return $this;
+    }
+
+    /**
+     * Remove sale
+     *
+     * @param \Bundles\StoreBundle\Entity\OrderPhoto $sale
+     */
+    public function removeSale(\Bundles\StoreBundle\Entity\OrderPhoto $sale)
+    {
+        $this->sales->removeElement($sale);
+    }
+
+    /**
+     * Get sales
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSales()
+    {
+        return $this->sales;
+    }
+
+    /**
+     * Add purchase
+     *
+     * @param \Bundles\StoreBundle\Entity\OrderPhoto $purchase
+     *
+     * @return User
+     */
+    public function addPurchase(\Bundles\StoreBundle\Entity\OrderPhoto $purchase)
+    {
+        $this->purchase[] = $purchase;
+
+        return $this;
+    }
+
+    /**
+     * Remove purchase
+     *
+     * @param \Bundles\StoreBundle\Entity\OrderPhoto $purchase
+     */
+    public function removePurchase(\Bundles\StoreBundle\Entity\OrderPhoto $purchase)
+    {
+        $this->purchase->removeElement($purchase);
+    }
+
+    /**
+     * Get purchase
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPurchase()
+    {
+        return $this->purchase;
+    }
+}
